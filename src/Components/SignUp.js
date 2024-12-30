@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../Styles/App.module.css';
 import { Link } from 'react-router-dom';
-import logo from '../Assets/DALL_E_2024-12-25_09.36.20_-_A_minimalist_logo_for_a_budget_web_application_called__Echo_._The_logo_features_an_abstract_design_symbolizing_financial_planning_and_simplicity__such-removebg-preview.png'
+import logo from '../Assets/logo.png'
 
 import { useState } from 'react';
 
