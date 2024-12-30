@@ -1,6 +1,9 @@
 import React from "react";
 import styles from '../Styles/App.module.css'
 import DashboardMenu from "./DashboardMenu";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const Dashboard = () => {
     return(
@@ -68,20 +71,135 @@ const Dashboard = () => {
                 </div>
               <div className= {styles.cardBodyAccounts}>
                <div className= {styles.cardBodyContainer}>
-                <h1>Checking</h1>
+                <div className= {styles.grid}>
+                <div className= {styles.row}>
+                <div className= {styles.cell}>
+                <div className= {styles.firstPart}>
+                <FontAwesomeIcon
+                 icon={faCheck}
+                 className= {styles.icons2}
+                />
+                <div className= {styles.savingLabel}>
+                  <p className= {styles.accountName}>Checking</p>
+                </div>
+                </div>
+                <div className= {styles.amountBalance}>
+                  <label className= {styles.label1}>$85</label>
+                <div className= {styles.dropdown}>
+                <div className= {styles.dropdownToggle}>
+                 <FontAwesomeIcon
+                 icon={faCaretDown}
+
+                 />
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                <div className= {styles.row}>
+                    <div className= {styles.cell}>
+                <div className= {styles.firstPart}>
+                <FontAwesomeIcon
+                 icon={faCheck}
+                 className= {styles.icons2}
+                />
+                <div className= {styles.savingLabel}>
+                  <p className= {styles.accountName}>Checking</p>
+                </div>
+                </div>
+                <div className= {styles.amountBalance}>
+                  <label className= {styles.label1}>$85</label>
+                <div className= {styles.dropdown}>
+                <div className= {styles.dropdownToggle}>
+                 <FontAwesomeIcon
+                 icon={faCaretDown}
+
+                 />
+                </div>
+                </div>
+                </div>
+               </div>
+              </div>
+              <div className= {styles.row}>
+                    <div className= {styles.cell}>
+                <div className= {styles.firstPart}>
+                <FontAwesomeIcon
+                 icon={faCheck}
+                 className= {styles.icons2}
+                />
+                <div className= {styles.savingLabel}>
+                  <p className= {styles.accountName}>Checking</p>
+                </div>
+                </div>
+                <div className= {styles.amountBalance}>
+                  <label className= {styles.label1}>$85</label>
+                <div className= {styles.dropdown}>
+                <div className= {styles.dropdownToggle}>
+                 <FontAwesomeIcon
+                 icon={faCaretDown}
+
+                 />
+                </div>
+                </div>
+                </div>
+               </div>
+              </div>
+              <div className= {styles.row}>
+                    <div className= {styles.cell}>
+                <div className= {styles.firstPart}>
+                <FontAwesomeIcon
+                 icon={faCheck}
+                 className= {styles.icons2}
+                />
+                <div className= {styles.savingLabel}>
+                  <p className= {styles.accountName}>Checking</p>
+                </div>
+                </div>
+                <div className= {styles.amountBalance}>
+                  <label className= {styles.label1}>$85</label>
+                <div className= {styles.dropdown}>
+                <div className= {styles.dropdownToggle}>
+                 <FontAwesomeIcon
+                 icon={faCaretDown}
+
+                 />
+                </div>
+                </div>
+                </div>
+               </div>
+              </div>
+              <div className= {styles.row}>
+                    <div className= {styles.cell}>
+                <div className= {styles.firstPart}>
+                <FontAwesomeIcon
+                 icon={faCheck}
+                 className= {styles.icons2}
+                />
+                <div className= {styles.savingLabel}>
+                  <p className= {styles.accountName}>Checking</p>
+                </div>
+                </div>
+                <div className= {styles.amountBalance}>
+                  <label className= {styles.label1}>$85</label>
+                <div className= {styles.dropdown}>
+                <div className= {styles.dropdownToggle}>
+                 <FontAwesomeIcon
+                 icon={faCaretDown}
+
+                 />
+                </div>
+                </div>
+                </div>
                </div>
               </div>
             </div>
-            <div className= {styles.cardBodyUpcoming}>
-            <p>Coming Up</p>
-          </div>
-          <div className= {styles.cardsBodyUpcomingContainer}>
-            <h1>Hi</h1>
-          </div>
           </div>
         </div>
       </div>
      </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     

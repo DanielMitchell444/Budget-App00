@@ -10,152 +10,131 @@ import { faPiggyBank } from "@fortawesome/free-solid-svg-icons";
 import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
+import { faDashboard } from "@fortawesome/free-solid-svg-icons";
 const DashboardMenu = () => {
     return(
-        <nav className= {styles.DashboardNav}>
-     <div className= {styles.dashboardGeneral}>
-     <div className= {styles.logo}>
-          <h1>Echo</h1>
-        </div>
-      <ul className= {styles.dashboardGeneralMenu}>
-      <li>
-        <FontAwesomeIcon
-        icon = {faHome}
-        className= {styles.dashboardIcons}
-        />
-        <Link to = "/Dashboard"
-        className= {styles.dashboardNavLinks}
-        >Dashboard</Link>
-      </li>
-      <li>
-      <FontAwesomeIcon 
-        icon={faChartLine} 
-        className= {styles.dashboardIcons}
-        />
-  <Link to="/Expenses" className= {styles.dashboardNavLinks}>Expenses</Link>
-  <ul className= {styles.subMenu}>
-    <li>
-      <Link to="/Accounts"
-      className= {styles.dashboardNavLinks}
-      >Accounts</Link>
-    </li>
-    <li>
-      <Link to="/Transactions"
-      className= {styles.dashboardNavLinks}
-      >Transactions</Link>
-    </li>
-    <li>
-      <Link to="/Budget"
-      className= {styles.dashboardNavLinks}
-      >Budget</Link>
-    </li>
-  </ul>
-</li>
-<li>
-<FontAwesomeIcon 
-        icon={faHandHoldingUsd} 
-        className= {styles.dashboardIcons}
-        />
-  <Link to="/Expenses"
-  className= {styles.dashboardNavLinks}
-  >Debt Management</Link>
-  <ul className= {styles.subMenu}>
-    <li>
-      <Link to="/Accounts"
-      className= {styles.dashboardNavLinks}
-      >Payment Tracking</Link>
-    </li>
-    <li>
-      <Link to="/Transactions"
-      className= {styles.dashboardNavLinks}
-      >Repayment Strategies</Link>
-    </li>
-    <li>
-      <Link to="/Budget"
-      className= {styles.dashboardNavLinks}
-      >Credit Score Managing</Link>
-    </li>
-  </ul>
-</li>
-<li>
-<FontAwesomeIcon 
-        icon={faPiggyBank}
-        className= {styles.dashboardIcons} 
-        />
-  <Link to="/Expenses"
-  className= {styles.dashboardNavLinks}
-  >Savings</Link>
-  <ul className= {styles.subMenu}>
-    <li>
-      <Link to="/Accounts"
-      className= {styles.dashboardNavLinks}
-      >Savings Goals</Link>
-    </li>
-    <li>
-      <Link to="/Transactions"
-      className= {styles.dashboardNavLinks}
-      >Progress Tracker</Link>
-    </li>
-    <li>
-      <Link to="/Budget"
-      className= {styles.dashboardNavLinks}
-      >Savings Suggestions</Link>
-    </li>
-    <li>
-      <Link to="/Budget"
-      className= {styles.dashboardNavLinks}
-      >Savings Analysis</Link>
-    </li>
-  </ul>
-</li>
-
-<li>
-<FontAwesomeIcon 
-        icon={faCreditCard} 
-        className= {styles.dashboardIcons}
-        />
-  <Link to="/Expenses"
-  className= {styles.dashboardNavLinks}
-  >Payments</Link>
-  <ul className= {styles.subMenu}>
-    <li>
-      <Link to="/Accounts"
-      className= {styles.dashboardNavLinks}
-      >Track Payments</Link>
-    </li>
-    <li>
-      <Link to="/Transactions"
-      className= {styles.dashboardNavLinks}
-      >Payment History</Link>
-    </li>
-    <li>
-      <Link to="/Budget"
-      className= {styles.dashboardNavLinks}
-      >Settings</Link>
-    </li>
-  </ul>
-</li>
-<li>
-<FontAwesomeIcon 
-        icon={faUser} 
-        className= {styles.dashboardIcons}
-        />
-      <Link to = "/profile"
-      className= {styles.dashboardNavLinks}
-      >Profile</Link>
-      </li>
-      <li>
-      <FontAwesomeIcon 
-        icon={faCog} 
-        className= {styles.dashboardIcons}
-        />
-      <Link to = "/settings"
-      className= {styles.dashboardNavLinks}
-      >Settings</Link>
-      </li>
-      </ul>
+      <>
+     <aside className= {styles.aside}>
+      <div className= {styles.logoHeader}>
+        <h1>Echo</h1>
       </div>
-     </nav>
+      <div className= {styles.nameCard}>
+        <div className= {styles.names}>
+          <label className= {styles.name}>Hi Daniel</label>
+          <Link to = "/">
+          <span className= {styles.buy}>Buy Premium</span>
+          
+          </Link>
+        </div>
+        <div className= {styles.notificationsAndSettings}>
+        <div className= {styles.bell}>
+          <div className= {styles.bell2}>
+            <FontAwesomeIcon
+            icon = {faBell}
+            className= {styles.icons3}
+
+            />
+          </div>
+        </div>
+        <div className= {styles.settings}>
+          <div className= {styles.gear}>
+           <div className= {styles.gear2}>
+            <FontAwesomeIcon
+            icon={faGear}
+            className= {styles.icons3}
+
+            />
+           </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <nav className= {styles.navigationMenu}>
+          <ul className= {styles.listItems}>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Recurring"
+            className= {styles.dashboardLinks}
+            >Recurring</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+            <li className= {styles.links58}>
+            <div className= {styles.text}>
+            <FontAwesomeIcon
+            icon={faDashboard}
+            className= {styles.icons3}
+            />
+            <Link to = "/Dashboard"
+            className= {styles.dashboardLinks}
+            >Dashboard</Link>
+            </div>
+            </li>
+          </ul>
+        </nav>
+     </aside>
+     </>
     )
 }
 

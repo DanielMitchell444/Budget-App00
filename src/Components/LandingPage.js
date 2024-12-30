@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../Styles/App.module.css'
 import { Route, Link } from 'react-router-dom'
+import {image} from '../Assets/Preview-removebg-preview.png'
 import Nav from './Nav'
 const LandingPage = ({show, menu}) => {
     return(

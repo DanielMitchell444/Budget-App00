@@ -9,6 +9,7 @@ import { BrowserRouter,  Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
 import LandingPage from './Components/LandingPage';
 import Nav from './Components/Nav';
+import Setup2 from './Components/Setup2';
 import About from './Components/About';
 import News from './Components/News';
 import Contact from './Components/Contact';
@@ -20,6 +21,7 @@ import Dashboard from './Components/Dashboard';
 import Setup from './Components/Setup';
 import { usePlaidLink } from 'react-plaid-link';
 import { useTellerLink } from 'teller-connect-react'; // Import Teller Link hook
+import Recurring from '../src/Components/Recurring'
 function App() {
   //Handing input fields //
    
@@ -34,7 +36,7 @@ function App() {
   const [gender, setGender] = useState("")
   const [isValidEmail, setIsValidEmail] = useState()
   const [menu, setShowMenu] = useState(false)
-  const [steps, nextSteps] = useState(1)
+  const [steps, nextSteps] = useState(2)
 
   const [data, setFormData] = useState({
     FirstName: "",
@@ -44,6 +46,12 @@ function App() {
     Email: "",
     Birthday: "",
   })
+
+  const [upcoming, setUpcoming] = useState(false)
+
+  const [viewAll, setViewAll] = useState(false)
+
+  const [calendar, setCalendar] = useState(false)
 
 
 
@@ -78,9 +86,23 @@ function App() {
 
   const [valid, setIsValid] = useState()
 
+
+
   const [error, setError] = useState("")
   const [generalError, setGeneralError] = useState("")
   const [linkToken, setLinkToken] = useState('');
+
+  const handleUpcomingButtonClick = (e) => {
+    setUpcoming(!upcoming)
+  }
+
+  const handleViewAllClick = () => {
+    setViewAll(!viewAll)
+  }
+
+  const handleCalendarClick = () => {
+    setCalendar(!calendar)
+  }
 
   const handleSignIn = async () => {
     try {
@@ -248,6 +270,8 @@ const handleSubmitLogIn = async (e) => {
 
       const {first_login, access_token, refresh_token } = response.data; // Extract tokens from the response
       localStorage.setItem('access_token', access_token)
+      localStorage.setItem('Email', loginData.Email)
+      setLoginData(loginData.Email)
       localStorage.setItem('refresh_token', refresh_token)
       if(first_login === true){
       // Store tokens securely
@@ -372,36 +396,51 @@ const handleSubmit = async (e) => {
       const { open, ready } = useTellerConnect({
         applicationId: "app_p76c29q36r8ae6hq9a000", // Teller application ID
         environment: "sandbox",
+        selectAccount: "single", // User selects a single account
         onSuccess: async (auth) => {
             console.log("Teller authentication successful:", auth);
     
             const tellerAccessToken = auth.accessToken; // Extract the Teller access token
             const access = localStorage.getItem('access_token')
+            const email = localStorage.getItem('Email')
+            localStorage.setItem("Teller", auth.accessToken)
+            console.log(access)
             console.log("Teller Access Token:", tellerAccessToken);
+            const accessToken2 = localStorage.getItem('Teller')
     
             // Send the Teller access token to the backend
-            try {
-                const response = await axios.post("http://localhost:8000/api/teller/accounts/", {
-                    tellerAccessToken: tellerAccessToken,
-                
-                },
-                {
-      
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-            });
-                
-    
-                if (response.data) {
-                    console.log("Bank information:", response.data);
-                    // Handle the bank information (e.g., display it, store it, etc.)
-                } else {
-                    console.error("Failed to fetch bank information.");
-                }
-            } catch (error) {
-                console.error("Error:", error.message);
-            }
+             // Now that you have the access token, retrieve account information
+       try {
+        // Send the access token to your Django backend instead of directly to Teller
+        const accountsResponse = await axios.post("http://localhost:8000/api/teller/fetch_accounts/", {
+            tellerAccessToken: accessToken2,
+            email: email
+        }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${access}`  // Include JWT token to authenticate the user in your backend
+      }
+    }
+      );
+
+        // Handle the response from your backend
+        if (accountsResponse.data) {
+            const account = accountsResponse.data.account;
+            const balanceUrl = account?.links?.balances;
+            const accountId = account?.id;
+            const accountName = account?.name;
+            const institution = account?.institution?.name;
+
+            console.log("Account ID:", accountId);
+            console.log("Account Name:", accountName);
+            console.log("Institution:", institution);
+            console.log("Balance URL:", balanceUrl);
+        } else {
+            console.log("No account information found.");
+        }
+    } catch (error) {
+        console.error("Error fetching account data:", error);
+    }
         },
         onExit: () => {
             console.log("Teller API window closed by user.");
@@ -449,9 +488,7 @@ const handleSubmit = async (e) => {
     }
 
   } else if (steps === 3) {
-      if(ready){
-        open()
-      }
+       console.log('this works')
       
  }
 
@@ -562,6 +599,38 @@ const sendToBackend = async (auth) => {
       }
 
       />
+
+      <Route path = "/Recurring" element = {
+        <Recurring 
+        upcoming = {upcoming}
+        onUpcomingClick = {handleUpcomingButtonClick}
+        />
+      }
+
+      />
+
+      <Route path = "/Setup2"
+      element = {
+      <Setup2 
+      data = {profile}
+      onChange = {handleProfileChange}
+      onSubmit = {handleProfile}
+      steps = {steps}
+      error = {error}
+      linkToken = {linkToken}
+      openTellerLink = {openTellerLink}
+      onSuccess={exchangePublicToken}
+      open = {open}
+      ready = {ready}
+      generalError = {generalError}
+      linkToken2 = {linkToken}
+      
+      />
+      }
+      />
+      
+
+
 
       <Route path = "/Contact" element = {
        <Contact />

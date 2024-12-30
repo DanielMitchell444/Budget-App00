@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from '../Styles/App.module.css'
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import Setup from "./Setup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Nav = ({menu, toggleMenu}) => {
     return(
         <header className= {styles.header}>
         <nav className= {styles.nav}>
           <Link to = "/" className= {styles.navLogo}>
-           <h1>Echo Software</h1>
+           <h1>
+          Echo Software
+           </h1>
           </Link>
           <div className= {styles.navMenu}>
 
@@ -20,7 +23,7 @@ const Nav = ({menu, toggleMenu}) => {
           <Link to = "/Dashboard"  className= {styles.navLinks2}>About Us</Link>
           </li>
           <li>
-          <Link to = "/News"  className= {styles.navLinks2}>News</Link>
+          <Link to = "/Setup2"  className= {styles.navLinks2}>News</Link>
           </li>
           <li>
           <Link to = "/Contact"  className= {styles.navLinks2}>Contact Us</Link>
