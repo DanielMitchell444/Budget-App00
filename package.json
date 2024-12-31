@@ -2,7 +2,7 @@
   "name": "budget-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://DanielMitchell444.github.io/Budget-app00",
+  "homepage": "http://DanielMitchell444.github.io/Budget-App00",
   "proxy": "http://localhost:8000",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
